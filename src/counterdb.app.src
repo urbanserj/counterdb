@@ -1,0 +1,34 @@
+%% -*- mode: erlang;erlang-indent-level: 4;indent-tabs-mode: nil -*-
+%% ex: ts=4 sw=4 ft=erlang et
+
+{application, counterdb, [
+    {description, "Distributed database of counters"},
+    {vsn, "0.1.0"},
+    {registered, []},
+    {mod, {counterdb_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        lager,
+        jsx,
+        riak_dt,
+        hackney,
+        cowboy
+    ]},
+    {env, [
+        {server_id, 0},
+        {port, 7777},
+
+        {aae_timeout, 10000},
+        {request_timeout, 500},
+        {retry_wait_timeout, 100},
+        {max_wait_timeout, 300000}
+    ]},
+    {modules, []},
+
+    {maintainers, ["Sergey Urbanovich"]},
+    {licenses, ["MIT License"]},
+    {links, [
+        {"Github", "https://github.com/urbanserj/counterdb"}
+    ]}
+]}.
